@@ -1,0 +1,78 @@
+{
+  "name": "@tungvn/form-schema-builder",
+  "dockerComposeFile": ["./docker-compose.yml"],
+  "service": "container",
+  "runServices": ["container"],
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": ["esbenp.prettier-vscode", "joelday.docthis"],
+      "settings": {
+        "editor.autoIndent": "advanced",
+        "editor.links": true,
+        "editor.rulers": [80, 120],
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnPaste": false,
+        "editor.formatOnSave": false,
+        "editor.linkedEditing": true,
+        "prettier.semi": false,
+        "prettier.singleQuote": true,
+        "prettier.trailingComma": "es5",
+        "prettier.printWidth": 80,
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescriptreact]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "search.exclude": {
+          "**/.yarn": true,
+          "**/.pnp.*": true,
+          "**/node_modules/**/*": true,
+          "**/.next/**/*": true,
+          "**/.turbo/**/*": true,
+          "**/tmp": true,
+          "**/storybook-static": true,
+          "**/.vercel": true
+        },
+        "files.watcherExclude": {
+          "**/.git/objects/**": true,
+          "**/.git/subtree-cache/**": true,
+          "**/node_modules/*/**": true,
+          "**/.hg/store/**": true,
+          "**/.next/**/*": true,
+          "**/.turbo/**/*": true,
+          "**/dist/**/*": true,
+          "**/tmp": true,
+          "**/storybook-static": true,
+          "**/.vercel": true
+        },
+        "files.exclude": {
+          "**/.git": true,
+          "**/.svn": true,
+          "**/.hg": true,
+          "**/CVS": true,
+          "**/.DS_Store": true,
+          "**/Thumbs.db": true,
+          "**/node_modules": true,
+          "**/.next": true,
+          "**/.turbo": true,
+          "**/.vscode": true,
+          "**/.yarnrc*": true,
+          "**/.devcontainer*": true,
+          "**/.yarn": true,
+          "**/tmp": true,
+          ".firebaserc": true,
+          "pnpm-*.yaml": true,
+          "**/next-env.d.ts": true
+        },
+        "typescript.enablePromptUseWorkspaceTsdk": true,
+        "typescript.tsdk": "node_modules/typescript/lib"
+      }
+    }
+  }
+}

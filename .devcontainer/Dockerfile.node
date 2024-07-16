@@ -1,0 +1,25 @@
+FROM node:20
+
+ENV LANG C.UTF-8
+RUN apt-get update -qq && apt-get install -y \
+  build-essential graphviz curl vim jq dnsutils \
+  libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev \
+  libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb \
+  && rm -rf /var/lib/apt/lists/* \
+  && curl -sS https://starship.rs/install.sh | sh -s -- --yes
+
+RUN corepack enable
+
+RUN \
+  echo "PS1='🐳  \[\033[1;36m\][\$(hostname)] \[\033[1;34m\]\W\[\033[0;35m\] \[\033[1;36m\]\[\033[0m\]'" >> ~/.bashrc; \
+  echo "alias ls='ls --color=auto'" >> ~/.bashrc; \
+  echo "alias grep='grep --color=auto'" >> ~/.bashrc; \
+  echo 'eval "$(starship init bash)"' >> ~/.bashrc
+
+WORKDIR /workspace
+ENV EDITOR=vim
+ENV STARSHIP_CONFIG /workspace/.devcontainer/starship.toml
+
+RUN npm i -g pnpm@9.5.0 --force
+
+CMD ["/bin/sh"]

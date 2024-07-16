@@ -1,0 +1,27 @@
+version: '3.8'
+
+x-base: &base
+  tty: true
+  env_file: .env
+  volumes:
+    - .:/workspace
+x-node: &node
+  <<: *base
+  build:
+    context: .
+    dockerfile: .devcontainer/Dockerfile.node
+
+services:
+  container:
+    <<: *node
+    container_name: form-schema-builder.localhost
+    hostname: form-schema-builder.localhost
+    working_dir: /workspace
+    volumes:
+      - container-vscode-server:/root/.vscode-server
+      - .devcontainer/.npmrc:/root/.npmrc:ro
+      - pnpm-store:/pnpm-store
+      - .:/workspace
+volumes:
+  container-vscode-server: {}
+  pnpm-store: {}
